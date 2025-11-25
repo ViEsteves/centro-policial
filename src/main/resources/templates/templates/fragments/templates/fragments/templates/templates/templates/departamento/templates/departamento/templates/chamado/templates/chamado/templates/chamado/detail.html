@@ -1,0 +1,13 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: *"></head>
+  <body class="container">
+    <h3 th:text="${chamado.titulo}">Título</h3>
+    <p><strong>Departamento:</strong> <span th:text="${chamado.departamento != null ? chamado.departamento.nome : ''}"></span></p>
+    <p th:text="${chamado.descricao}">Descrição</p>
+    <div th:if="${chamado.imagemPath}">
+      <img th:src="@{'/uploads/' + ${chamado.imagemPath}}" alt="Imagem" style="max-width:400px;"/>
+    </div>
+    <div th:replace="fragments/footer :: *"></div>
+  </body>
+</html>

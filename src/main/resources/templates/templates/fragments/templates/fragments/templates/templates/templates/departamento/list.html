@@ -1,0 +1,21 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: *"></head>
+  <body class="container">
+    <h3>Departamentos</h3>
+    <a class="btn btn-success mb-2" th:href="@{/app/departamentos/novo}">Novo</a>
+    <table class="table">
+      <thead><tr><th>Nome</th><th>Ações</th></tr></thead>
+      <tbody>
+        <tr th:each="d : ${page.content}">
+          <td th:text="${d.nome}">Nome</td>
+          <td>
+            <a th:href="@{'/app/departamentos/editar/' + ${d.id}}" class="btn btn-sm btn-primary">Editar</a>
+            <a th:href="@{'/app/departamentos/deletar/' + ${d.id}}" class="btn btn-sm btn-danger">Deletar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div th:replace="fragments/footer :: *"></div>
+  </body>
+</html>

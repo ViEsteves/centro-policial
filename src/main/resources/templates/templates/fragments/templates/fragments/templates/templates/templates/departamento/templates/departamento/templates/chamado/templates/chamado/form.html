@@ -1,0 +1,30 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: *"></head>
+  <body class="container">
+    <h3 th:text="${chamado.id} == null ? 'Novo Chamado' : 'Editar Chamado'">Novo Chamado</h3>
+    <form th:action="@{/app/chamados/salvar}" method="post" th:object="${chamado}" enctype="multipart/form-data">
+      <div class="mb-3">
+        <label>Título</label>
+        <input type="text" th:field="*{titulo}" class="form-control"/>
+        <div th:if="${#fields.hasErrors('titulo')}" th:errors="*{titulo}" class="text-danger"></div>
+      </div>
+      <div class="mb-3">
+        <label>Descrição</label>
+        <textarea th:field="*{descricao}" class="form-control"></textarea>
+      </div>
+      <div class="mb-3">
+        <label>Departamento</label>
+        <select th:field="*{departamentoId}" class="form-control">
+          <option th:each="d : ${departamentos}" th:value="${d.id}" th:text="${d.nome}"></option>
+        </select>
+      </div>
+      <div class="mb-3">
+        <label>Imagem (jpg/png)</label>
+        <input type="file" name="imagem" class="form-control"/>
+      </div>
+      <button class="btn btn-primary">Salvar</button>
+    </form>
+    <div th:replace="fragments/footer :: *"></div>
+  </body>
+</html>

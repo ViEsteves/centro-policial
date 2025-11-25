@@ -68,3 +68,19 @@ user@exemplo.com / 123
  Vinícius Esteves de Souza — RA 3023104087
  Amanda Esteves Brito dos Santos — RA 30231052113
  Ryan Eleutherio Dias — RA 3023105252
+
+# Centro Policial
+
+## Integrantes
+- Vinícius Esteves de Souza — RA 3023104087
+- Amanda Esteves Brito dos Santos — RA 30231052113
+- Ryan Eleutherio Dias — RA 3023105252
+
+## Instruções rápidas
+1. Configurar `src/main/resources/application.properties` com credenciais MySQL.
+2. Criar DB: `CREATE DATABASE centro_policial_db;`
+3. Rodar: `mvn spring-boot:run`
+4. Usuários seeds:
+   - admin@exemplo.com / admin123
+   - user@exemplo.com / user123
+5. Swagger: http://localhost:8080/swagger-ui/index.html

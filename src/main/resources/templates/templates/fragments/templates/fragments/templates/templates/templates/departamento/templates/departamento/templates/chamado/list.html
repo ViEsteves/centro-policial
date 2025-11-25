@@ -1,0 +1,22 @@
+<!doctype html>
+<html xmlns:th="http://www.thymeleaf.org">
+  <head th:replace="fragments/header :: *"></head>
+  <body class="container">
+    <h3>Chamados</h3>
+    <a class="btn btn-success mb-2" th:href="@{/app/chamados/novo}">Novo Chamado</a>
+    <table class="table">
+      <thead><tr><th>Título</th><th>Departamento</th><th>Ações</th></tr></thead>
+      <tbody>
+        <tr th:each="c : ${page.content}">
+          <td th:text="${c.titulo}">Título</td>
+          <td th:text="${c.departamento != null ? c.departamento.nome : ''}">Dept</td>
+          <td>
+            <a th:href="@{'/app/chamados/detalhe/' + ${c.id}}" class="btn btn-sm btn-info">Ver</a>
+            <a th:href="@{'/app/chamados/deletar/' + ${c.id}}" class="btn btn-sm btn-danger">Deletar</a>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div th:replace="fragments/footer :: *"></div>
+  </body>
+</html>
